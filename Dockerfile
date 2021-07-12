@@ -186,7 +186,7 @@ ENV PROTOCOL_BUFFERS_DEPS autoconf \
                           python-dev \
                           python3-dev \
                           python-pip \
-                          python3-pip \
+                          python3-pip
 ENV CFLAGS="-Os"
 ENV CXXFLAGS="-Os"
 ENV LDFLAGS="-Wl,-s"
