@@ -185,8 +185,8 @@ ENV PROTOCOL_BUFFERS_DEPS autoconf \
                           make \
                           python-dev \
                           python3-dev \
-                          python-setuptools \
-                          python3-setuptools
+                          python-pip \
+                          python3-pip \
 ENV CFLAGS="-Os"
 ENV CXXFLAGS="-Os"
 ENV LDFLAGS="-Wl,-s"
@@ -197,6 +197,8 @@ COPY ./protobuf-deps/googlemock /protobuf/gmock
 COPY ./protobuf-deps/googletest /protobuf/gmock/gtest
 WORKDIR /protobuf/
 RUN apt-get update && apt-get install -y --no-install-recommends $PROTOCOL_BUFFERS_DEPS
+RUN pip install --upgrade setuptools
+RUN pip3 install --upgrade setuptools
 RUN ./autogen.sh
 RUN ./configure
 RUN make
